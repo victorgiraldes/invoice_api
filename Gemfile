@@ -25,6 +25,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'rack-attack'
 # Represent use cases in a simple and powerful way while writing modular, expressive and sequentially logical code.
 gem 'u-case', '~> 4.5.1'
+# This library provides integration of the money gem with Rails.
+gem 'money-rails', '~>1.12'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
