@@ -11,7 +11,7 @@ module User
 
       user.update(token: nil, token_status: nil)
 
-      return Success { { user: user } } unless user.errors.any?
+      Success result: { user: user }
     end
   end
 end

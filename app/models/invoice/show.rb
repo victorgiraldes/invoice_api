@@ -1,14 +1,11 @@
 class Invoice::Show < Micro::Case
-  attributes %i[user invoice_id]
-
-  validates :user, type: User
-  validates :invoice_id, numericality: { only_integer: true }
+  attributes :user, :params
 
   def call!
-    invoice = User.invoices.find_by(id: params[:id])
+    invoice = user.invoices.find_by(id: params[:id])
 
-    return Success { { invoice: invoice } } if invoice
+    return Success result: { invoice: invoice } if invoice
 
-    Failure(:invoice_not_found) { { errors: 'invoice not found' } }
+    Failure(:invoice_not_found) { { errors: 'Invoice not found' } }
   end
 end
