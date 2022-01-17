@@ -3,8 +3,8 @@ class CreateInvoices < ActiveRecord::Migration[6.0]
     create_table :invoices do |t|
       t.integer :number
       t.date :date
-      t.text :company
-      t.text :charge
+      t.text :company_info
+      t.text :charge_info
       t.monetize :price
 
       t.timestamps
