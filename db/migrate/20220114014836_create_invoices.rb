@@ -6,6 +6,7 @@ class CreateInvoices < ActiveRecord::Migration[6.0]
       t.text :company_info
       t.text :charge_info
       t.monetize :price
+      t.references :user, index: true, foreign_key: true
 
       t.timestamps
     end
