@@ -27,6 +27,8 @@ gem 'rack-attack'
 gem 'u-case', '~> 4.5.1'
 # This library provides integration of the money gem with Rails.
 gem 'money-rails', '~>1.12'
+# Rack::Cors provides support for Cross-Origin Resource Sharing (CORS) for Rack compatible web applications.
+gem 'rack-cors'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
