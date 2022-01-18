@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Ei, <%= @user.email %></h1>
+    <p>
+      <table>
+        <td>
+          <tr> Number </tr>
+          <tr> Date </tr>
+          <tr> Company Informations </tr>
+          <tr> Charge Informations </tr>
+          <tr> Price </tr>
+        </td>
+        <td>
+          <tr> <%= @invoice.number %> </tr>
+          <tr> <%= @invoice.date %> </tr>
+          <tr> <%= @invoice.company_info %> </tr>
+          <tr> <%= @user.charge_info %> </tr>
+          <tr> <%= @user.price_cents %> </tr>
+        </td>
+      </table>
+    </p>
+  </body>
+</html>
