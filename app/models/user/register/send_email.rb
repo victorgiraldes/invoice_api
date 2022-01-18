@@ -4,7 +4,7 @@ class User
       attributes :user
 
       def call!
-        UserMailer.with(user: user).verify_token.deliver_now
+        UserMailer.with(user: user).verify_token.deliver_now!
 
         Success result: { user: user }
       end
