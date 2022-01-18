@@ -2,7 +2,7 @@ class InvoicesController < ApplicationController
   before_action :authenticate_user
 
   def create
-    Invoice::Create
+    Invoice::CreateFlow
       .call(user: current_user, params: params)
       .on_success { |result| render json: { invoice: result[:invoice] }, status: 200 }
       .on_failure(:invalid_invoice_params) { |result| render json: { error: result[:errors] }, status: 400 }
