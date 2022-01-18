@@ -14,7 +14,8 @@ RSpec.describe InvoicesController, type: :controller do
         date: '2022/01/10',
         company_info: 'This is a company informations',
         charge_info: 'This is a charge informations',
-        price_cents: 12
+        price_cents: 12,
+        emails: 'test@test.com, teste@test1.com.br'
       }
     }
     before do

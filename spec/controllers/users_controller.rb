@@ -3,10 +3,24 @@ require 'rails_helper'
 RSpec.describe UsersController, type: :controller do
   describe 'POST create' do
     before do
-      post :create, params: { email: 'test@test.com' }
+      ENV['BASE_URL'] = 'test.environment.com'
     end
 
-    it { expect(response.status).to eq(200) }
+    describe 'when success' do
+      before do
+        post :create, params: { email: 'test@test.com' }
+      end
+
+      it { expect(response.status).to eq(200) }
+    end
+
+    describe 'when fail' do
+      before do
+        post :create
+      end
+
+      it { expect(response.status).to eq(400) }
+    end
   end
 
   describe 'POST verify_token' do
