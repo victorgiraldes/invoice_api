@@ -1,24 +1,59 @@
-# README
+# Stack
+- Ruby 2.6.6
+- Rails 6.0.4.4
+- Sqlite3
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# How to Run Project ?
 
-Things you may want to cover:
+# Setup Project
+- Clone or Fork this project
 
-* Ruby version
+- For create database and tables
+```bash
+rake db:create db:migrate
+```
 
-* System dependencies
+- For view received emails
+```bash
+gem install maicatcher
+```
 
-* Configuration
+# Run Project
+- `rails s` to start the server
+- `mailcacher` for run mailcacher
 
-* Database creation
+# Run tests
+- `rake rspec` for run test suite
 
-* Database initialization
+# Endpoints
+## Users
+```bash
+- POST /users/registrations
+- params: { email: 'test@test.com' }
+```
 
-* How to run the test suite
+```bash
+- GET /users/verify_token
+- params: { token: 'HEynmsrTd0' }
+```
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## Invoices
 
-* ...
+```bash
+- POST /invoices
+- params: { number: '10', date: 2020-12-25, company_info: 'company informations', charge_info: 'charge informations', price_cents: '10' }
+```
+```bash
+- GET /invoices
+```
+
+```bash
+- GET /invoices/:id
+- params: { id: 1 }
+```
+
+```bash
+- DELETE /invoices/:id
+- params: { id: 1 }
+```
