@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resource :users do
     post '/registrations', to: 'users#create'
-    put '/verify_token', to: 'users#verify_token'
+    get '/verify_token', to: 'users#verify_token'
   end
 
   resources :invoices
