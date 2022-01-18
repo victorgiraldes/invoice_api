@@ -57,4 +57,24 @@ RSpec.describe InvoicesController, type: :controller do
       it { expect(response.status).to eq(400) }
     end
   end
+
+  describe 'DELETE destroy' do
+    let!(:invoice) { FactoryBot.create(:invoice, user: user) }
+
+    describe 'when success' do
+      before do
+        delete :destroy, params: { id: invoice.id }
+      end
+
+      it { expect(response.status).to eq(204) }
+    end
+
+    describe 'when failure' do
+      before do
+        delete :destroy, params: { id: 4 }
+      end
+
+      it { expect(response.status).to eq(400) }
+    end
+  end
 end
