@@ -1,9 +1,11 @@
-class Invoice::List < Micro::Case
-  attributes :user
+class Invoice
+  class List < Micro::Case
+    attributes :user
 
-  def call!
-    return Success result: { invoices: user.invoices } if user.invoices.any?
+    def call!
+      return Success result: { invoices: user.invoices } if user.invoices.any?
 
-    Failure(:invoices_not_found) { { errors: 'Invoices not found' } }
+      Failure(:invoices_not_found) { { errors: 'Invoices not found' } }
+    end
   end
 end
