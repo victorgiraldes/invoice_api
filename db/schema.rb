@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_14_014836) do
+ActiveRecord::Schema.define(version: 2022_01_18_195516) do
 
   create_table "invoices", force: :cascade do |t|
     t.integer "number"
@@ -25,6 +25,14 @@ ActiveRecord::Schema.define(version: 2022_01_14_014836) do
     t.index ["user_id"], name: "index_invoices_on_user_id"
   end
 
+  create_table "mailing_addresses", force: :cascade do |t|
+    t.string "email"
+    t.integer "invoice_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["invoice_id"], name: "index_mailing_addresses_on_invoice_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "token"
@@ -34,4 +42,5 @@ ActiveRecord::Schema.define(version: 2022_01_14_014836) do
   end
 
   add_foreign_key "invoices", "users"
+  add_foreign_key "mailing_addresses", "invoices"
 end
