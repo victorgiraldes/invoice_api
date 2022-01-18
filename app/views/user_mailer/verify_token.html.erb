@@ -6,7 +6,7 @@
   <body>
     <h1>Ei, <%= @user.email %>, clique no link abaixo para validar seu token </h1>
     <p>
-      @url
+      <%= link_to 'Validar Token', @url %>
     </p>
   </body>
 </html>
