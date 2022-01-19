@@ -6,5 +6,8 @@ Rails.application.routes.draw do
     get '/verify_token', to: 'users#verify_token'
   end
 
+  scope :auth do
+    delete '/', to: 'auth#destroy'
+  end
   resources :invoices
 end
