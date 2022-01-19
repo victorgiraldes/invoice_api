@@ -42,7 +42,7 @@ gem install maicatcher
 
 ```bash
 - POST /invoices
-- params: { number: '10', date: 2020-12-25, company_info: 'company informations', charge_info: 'charge informations', price_cents: '10' }
+- params: { number: '10', date: 2020-12-25, company_info: 'company informations', charge_info: 'charge informations', price_cents: '10', email: 'test@test.com, test2@test.com'}
 ```
 ```bash
 - GET /invoices
