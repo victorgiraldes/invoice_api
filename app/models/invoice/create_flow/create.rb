@@ -3,8 +3,6 @@ class Invoice
     class Create < Micro::Case
       attributes :user, :params
 
-      validates :params, presence: true
-
       def call!
         Invoice.transaction do
           @invoice = user.invoices.create(number: params[:number],
@@ -13,7 +11,7 @@ class Invoice
                                         charge_info: params[:charge_info],
                                         price_cents: params[:price_cents])
 
-          params[:emails].each do |email|
+          params[:emails]&.each do |email|
             MailingAddress.create!(invoice_id: @invoice.id, email: email)
           end
         end
