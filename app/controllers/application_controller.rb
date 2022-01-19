@@ -6,6 +6,6 @@ class ApplicationController < ActionController::API
   def current_user
     user = User.find_by(token: request.headers['Authorization'])
 
-    user.verified? ? user : nil
+    user&.verified? ? user : nil
   end
 end
